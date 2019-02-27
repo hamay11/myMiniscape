@@ -20,6 +20,13 @@ module.exports = {
    */
   // plugins: [ { src: '~/plugins/vue-konva', ssr: false, }, ],
   /*
+  ** Include css not in components
+  */
+ css: [
+  // node.js module but we specify the pre-processor
+  { src: 'bulma/bulma.sass', lang: 'sass', },
+  ],
+  /*
    ** Build configuration
    */
   build: {
