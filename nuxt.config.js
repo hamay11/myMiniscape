@@ -15,6 +15,10 @@ module.exports = {
    ** Customize the progress bar color
    */
   loading: { color: '#3B8070', },
+  /**
+   * plugins
+   */
+  // plugins: [ { src: '~/plugins/vue-konva', ssr: false, }, ],
   /*
    ** Build configuration
    */
@@ -29,9 +33,10 @@ module.exports = {
           test: /\.(js|vue)$/,
           loader: 'eslint-loader',
           exclude: /(node_modules)/,
-        })
+        });
       }
+      config.resolve.alias['vue'] = 'vue/dist/vue.common';
     },
   },
   mode: 'spa',
-}
+};

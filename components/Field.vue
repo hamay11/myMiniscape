@@ -6,7 +6,7 @@
 
 <style>
 .smart_view {
-  height: 1920px;
-  width: 1080px;
+  /* height: 1920px; */
+  width: 100vw;
 }
 </style>

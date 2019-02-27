@@ -23,7 +23,7 @@ module.exports = {
     ],
     // ここにカスタムルールを追加します。
     rules: {
-      "semi": [2, "never"],
+      "semi": [2, "always"],
       "quotes": [2, "single"],
       "no-console": "off",
       "vue/max-attributes-per-line": "off",
