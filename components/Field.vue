@@ -1,7 +1,5 @@
 <template>
-  <div class="smart_view">
-    <img border="0" src="../assets/background.PNG" alt="backgroung">
-  </div>
+    <img border="0" src="../assets/background.PNG" alt="background">
 </template>
 
 <style>
