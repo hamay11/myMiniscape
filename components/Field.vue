@@ -1,10 +1,9 @@
 <template>
-    <img border="0" src="../assets/background.PNG" alt="background">
+    <img class="background" border="0" src="../assets/background.png" alt="background">
 </template>
 
 <style>
-.smart_view {
-  /* height: 1920px; */
-  width: 100vw;
+.background {
+  width: 100%;
 }
 </style>

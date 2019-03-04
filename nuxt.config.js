@@ -24,7 +24,7 @@ module.exports = {
   */
  css: [
   // node.js module but we specify the pre-processor
-  { src: 'bulma/bulma.sass', lang: 'sass', },
+  // { src: 'bulma/bulma.sass', lang: 'sass', },
   ],
   /*
    ** Build configuration

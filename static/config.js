@@ -17,18 +17,25 @@ export const positions = {
     },
 };
 
+const characterNames = {
+    kamanosuke: 'kamanosuke',
+    juzo: 'juzo',
+};
+
 /**
  * キャラクター設定
  */
 export const characters = {
     kamanosuke: {
         name: '鎌ノ介',
-        img: 'kamanosuke.png',
+        chara: characterNames.kamanosuke,
+        img: 'kamanosuke.PNG',
         description: '',
         position: positions.atTheGarden,
     },
     juzo : {
         name: '十蔵',
+        chara: characterNames.juzo,
         img: 'juzo.png',
         description: '',
         position: positions.onTheTerrace,
