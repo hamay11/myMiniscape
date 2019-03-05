@@ -18,7 +18,6 @@ module.exports = {
   /**
    * plugins
    */
-  // plugins: [ { src: '~/plugins/vue-konva', ssr: false, }, ],
   /*
   ** Include css not in components
   */

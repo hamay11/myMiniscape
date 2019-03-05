@@ -1,5 +1,5 @@
 <template>
-    <img :src="'/_nuxt/assets/' + img" :alt="alt" class="character" border="0">
+    <img :src="require('../assets/' + img)" :alt="alt" class="character" border="0">
 </template>
 
 <script>

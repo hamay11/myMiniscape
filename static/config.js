@@ -29,7 +29,7 @@ export const characters = {
     kamanosuke: {
         name: '鎌ノ介',
         chara: characterNames.kamanosuke,
-        img: 'kamanosuke.PNG',
+        img: 'kamanosuke.png',
         description: '',
         position: positions.atTheGarden,
     },
