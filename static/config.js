@@ -32,12 +32,15 @@ export const characters = {
         img: 'kamanosuke.png',
         description: '',
         position: positions.atTheGarden,
+        rare: 1, // レア度の付け方は要検討
     },
     juzo : {
         name: '十蔵',
         chara: characterNames.juzo,
         img: 'juzo.png',
         description: '',
-        position: positions.onTheTerrace,
+        // position: positions.onTheTerrace,
+        position: positions.atTheGarden, // debug
+        rare: 5,
     },
 };
