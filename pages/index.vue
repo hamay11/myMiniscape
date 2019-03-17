@@ -1,6 +1,6 @@
 <template>
   <section class="main">
-    <button class="button" @click="movePage()">ほげ！</button>
+    <button class="button move" @click="movePage()">ほげ！</button>
     <FieldPage v-if="page === 'field'" />
     <ListPage v-if="page === 'list'" />
   </section>
@@ -38,11 +38,14 @@ export default {
 
 .button {
   position: fixed;
-  top: 56px;
-  left: 56px;
   height: 32px;
   width: 400px;
   z-index: 10;
   background: #fff;
+}
+
+.move {
+  top: 56px;
+  left: 56px;
 }
 </style>

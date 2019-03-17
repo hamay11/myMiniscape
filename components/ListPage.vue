@@ -1,7 +1,6 @@
 <template>
   <div>
     <ul>
-      <li><a href="./field">様子を見に行く</a></li>
       <li v-for="name in Object.keys(characterNames)" :key="name">
         <span v-if="captured.includes(name)">{{ characterNames[name] }}</span>
       </li>

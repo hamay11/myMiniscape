@@ -1,7 +1,7 @@
 <template>
 <div>
+  <button class="button reload" @click="setFieldCharacter">RELOAD</button>
   <div class="container layer_character" @click="addCharacter(characterId)">
-    <a href="./list">一覧へ</a>
       <Character v-if="atTheGarden" :img="atTheGarden.img" :alt="atTheGarden.name" />
   </div>
   <div class="container layer_background">
@@ -36,18 +36,7 @@ export default {
   mounted() {
     console.log('mounted');
     console.log(this.$store.state.master.characters.list);
-    const getRandomInt = (rare) => Math.floor(Math.random() * Math.floor(rare + 1));
-    // TODO: これだと配列前方の要素の方がより出現率が高いことになるので、出現率の傾斜の付け方は大いに検討の余地あり
-    const getAtTheGardenChara = () => 
-      Object.keys(characters).find(chara => 
-        characters[chara].position.key === positions.atTheGarden.key
-        && getRandomInt(characters[chara].rare) === 0);
-    this.setFieldCharacter(
-      { 
-        characterId: getAtTheGardenChara(),
-        position: positions.atTheGarden.key,
-      }
-    );
+    this.setFieldCharacter();
   },
   updated() {
     console.log(this.$store.state.master.characters.list);
@@ -75,5 +64,10 @@ export default {
 }
 .layer_background {
   z-index: 0;
+}
+
+.reload {
+  top: 96px;
+  left: 56px;
 }
 </style>
