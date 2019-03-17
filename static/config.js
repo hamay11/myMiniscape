@@ -5,16 +5,8 @@
  * @property {number} y
  */
 export const positions = {
-    onTheTerrace: {
-        key: 'ON_THE_TERRACE',
-        x: 0,
-        y: 0,
-    },
-    atTheGarden: {
-        key: 'AT_THE_GARDEN',
-        x: 100,
-        y: 1500,
-    },
+    onTheTerrace: 'ON_THE_TERRACE',
+    atTheGarden: 'AT_THE_GARDEN',
 };
 
 export const characterNames = {
@@ -43,9 +35,8 @@ export const characters = {
         chara: characterNames.juzo,
         img: 'juzo.png',
         description: '',
-        // position: positions.onTheTerrace,
-        position: positions.atTheGarden, // debug
-        rare: 5,
+        position: positions.onTheTerrace,
+        rare: 1, // debug
         positionStyle: {
             bottom: '22%',
             right: '20%',

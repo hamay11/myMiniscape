@@ -1,8 +1,18 @@
 <template>
 <div class="main">
   <button class="button reload" @click="setFieldCharacter">RELOAD</button>
-  <div class="container layer_character" @click="addCharacter(characterId)">
-      <Character v-if="atTheGarden" :img="atTheGarden.img" :alt="atTheGarden.name" :position="atTheGarden.positionStyle"/>
+  <div class="container layer_character">
+    <div
+      v-for="position in positionKeys"
+      :key="position"
+      @click="addCharacter(characterId(position))">
+        <Character
+          v-if="getCharacter(position)"
+          :img="getCharacter(position).img"
+          :alt="getCharacter(position).name"
+          :position="getCharacter(position).positionStyle"
+        />
+    </div>
   </div>
   <div class="container layer_background">
     <Field />
@@ -23,29 +33,29 @@ export default {
   },
   // data: function () {},
   computed: {
-    atTheGarden () {
-      const charaId = this.$store.state.master.characters.field[positions.atTheGarden.key];
-      console.log(charaId);
-      return characters[charaId];
-    },
-    characterId () {
-      // position.keyを受け取って返すようにしたい
-      return this.$store.state.master.characters.field[positions.atTheGarden.key];
+    positionKeys: function() {
+      return Object.keys(positions);
     },
   },
   mounted() {
-    console.log('mounted');
-    console.log(this.$store.state.master.characters.list);
     this.setFieldCharacter();
   },
   updated() {
-    console.log(this.$store.state.master.characters.list);
+    // console.log(this.$store.state.master.characters.list);
   },
   methods: {
     ...mapMutations({
       setFieldCharacter: 'master/setFieldCharacter',
       addCharacter: 'master/addCharacter',
     }),
+    getCharacter: function(position) {
+      const charaId = this.$store.state.master.characters.field[positions[position]];
+      return characters[charaId];
+    },
+    characterId: function(position) {
+      // positionを受け取って返すようにしたい
+      return this.$store.state.master.characters.field[positions[position]];
+    },
   },
 };
 </script>

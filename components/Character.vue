@@ -8,7 +8,6 @@ export default {
     img: {
       type: String,
       required: true,
-      // default: 'kamanosuke.png',
     },
     alt: {
       type: String,
@@ -26,7 +25,5 @@ export default {
 .character {
   position: absolute;
   width: 30vw;
-  /* top: 70%; /* TODO: configから受け取るようにしたい */
-  /* left: 10%; /* TODO: 同上 */
 }
 </style>
