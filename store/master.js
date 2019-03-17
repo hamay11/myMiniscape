@@ -14,8 +14,15 @@ export const state = () => ({
 });
 
 export const mutations = {
+    setFieldCharacter (state, { characterId, position, }) {
+        console.log(characterId, position);
+        state.characters.field[position] = characterId;
+    },
     addCharacter (state, characterId) {
-        state.character.list = state.character.list.concat(characterId);
+        console.log(characterId);
+        if (!state.characters.include(characterId)) {
+          state.characters.list = [...state.characters.list, characterId,];
+        }
     },
 };
 
