@@ -1,5 +1,5 @@
 <template>
-    <img :src="require('../assets/' + img)" :alt="alt" class="character" border="0">
+    <img :src="require('../assets/' + img)" :alt="alt" :style="position" class="character" border="0">
 </template>
 
 <script>
@@ -14,6 +14,10 @@ export default {
       type: String,
       required: true,
     },
+    position: {
+      type: Object,
+      required: true,
+    },
   },
 };
 </script>
@@ -22,7 +26,7 @@ export default {
 .character {
   position: absolute;
   width: 30vw;
-  top: 70%; /* TODO: configから受け取るようにしたい */
-  left: 10%; /* TODO: 同上 */
+  /* top: 70%; /* TODO: configから受け取るようにしたい */
+  /* left: 10%; /* TODO: 同上 */
 }
 </style>

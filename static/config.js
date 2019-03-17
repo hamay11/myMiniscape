@@ -33,6 +33,10 @@ export const characters = {
         description: '',
         position: positions.atTheGarden,
         rare: 1, // レア度の付け方は要検討
+        positionStyle: {
+            bottom: '8%',
+            left: '10%',
+        },
     },
     juzo : {
         name: '十蔵',
@@ -42,5 +46,9 @@ export const characters = {
         // position: positions.onTheTerrace,
         position: positions.atTheGarden, // debug
         rare: 5,
+        positionStyle: {
+            bottom: '22%',
+            right: '20%',
+        },
     },
 };

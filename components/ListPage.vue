@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="main">
     <ul>
       <li v-for="name in Object.keys(characterNames)" :key="name">
         <span v-if="captured.includes(name)">{{ characterNames[name] }}</span>

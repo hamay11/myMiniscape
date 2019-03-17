@@ -1,8 +1,8 @@
 <template>
-<div>
+<div class="main">
   <button class="button reload" @click="setFieldCharacter">RELOAD</button>
   <div class="container layer_character" @click="addCharacter(characterId)">
-      <Character v-if="atTheGarden" :img="atTheGarden.img" :alt="atTheGarden.name" />
+      <Character v-if="atTheGarden" :img="atTheGarden.img" :alt="atTheGarden.name" :position="atTheGarden.positionStyle"/>
   </div>
   <div class="container layer_background">
     <Field />

@@ -31,9 +31,8 @@ export default {
 
 <style>
 .main {
-  height: 100vh; /* TODO: PCのときもスマホくらいのサイズが出るようにしたい */
-  width: 100vw; /* TODO: PCのときもスマホくらいのサイズが出るようにしたい */
-  position: relative;
+  max-height: 100vh; /* TODO: PCのときもスマホくらいのサイズが出るようにしたい */
+  max-width: 100vw; /* TODO: PCのときもスマホくらいのサイズが出るようにしたい */
 }
 
 .button {
