@@ -1,12 +1,12 @@
 <template>
-  <section class="main">
+  <div>
     <ul>
       <li><a href="./field">様子を見に行く</a></li>
       <li v-for="name in Object.keys(characterNames)" :key="name">
         <span v-if="captured.includes(name)">{{ characterNames[name] }}</span>
       </li>
     </ul>
-  </section>
+  </div>
 </template>
 
 <script>
@@ -27,9 +27,4 @@ export default {
 </script>
 
 <style>
-.main {
-  height: 100vh; /* TODO: PCのときもスマホくらいのサイズが出るようにしたい */
-  width: 100vw; /* TODO: PCのときもスマホくらいのサイズが出るようにしたい */
-  position: relative;
-}
 </style>

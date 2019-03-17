@@ -1,13 +1,13 @@
 <template>
-  <section class="main">
-    <div class="container layer_character" @click="addCharacter(characterId)">
-      <a href="./list">一覧へ</a>
+<div>
+  <div class="container layer_character" @click="addCharacter(characterId)">
+    <a href="./list">一覧へ</a>
       <Character v-if="atTheGarden" :img="atTheGarden.img" :alt="atTheGarden.name" />
-    </div>
-    <div class="container layer_background">
-      <Field />
-    </div>
-  </section>
+  </div>
+  <div class="container layer_background">
+    <Field />
+  </div>
+</div>
 </template>
 
 <script>
@@ -62,12 +62,6 @@ export default {
 </script>
 
 <style>
-.main {
-  height: 100vh; /* TODO: PCのときもスマホくらいのサイズが出るようにしたい */
-  width: 100vw; /* TODO: PCのときもスマホくらいのサイズが出るようにしたい */
-  position: relative;
-}
-
 .container {
   width: 100%;
   height: 100%;

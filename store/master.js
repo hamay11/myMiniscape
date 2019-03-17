@@ -24,6 +24,13 @@ export const mutations = {
           state.characters.list = [...state.characters.list, characterId,];
         }
     },
+    movePage (state) {
+        if (state.ui.page === 'field') {
+            state.ui.page = 'list';
+        } else {
+            state.ui.page = 'field';
+        }
+    },
 };
 
 export const getters = () => {};
