@@ -1,6 +1,7 @@
 <template>
   <section class="main">
     <div class="container layer_character" @click="addCharacter(characterId)">
+      <a href="./list">一覧へ</a>
       <Character v-if="atTheGarden" :img="atTheGarden.img" :alt="atTheGarden.name" />
     </div>
     <div class="container layer_background">
@@ -34,6 +35,7 @@ export default {
   },
   mounted() {
     console.log('mounted');
+    console.log(this.$store.state.master.characters.list);
     const getRandomInt = (rare) => Math.floor(Math.random() * Math.floor(rare + 1));
     // TODO: これだと配列前方の要素の方がより出現率が高いことになるので、出現率の傾斜の付け方は大いに検討の余地あり
     const getAtTheGardenChara = () => 
@@ -46,6 +48,9 @@ export default {
         position: positions.atTheGarden.key,
       }
     );
+  },
+  updated() {
+    console.log(this.$store.state.master.characters.list);
   },
   methods: {
     ...mapMutations({

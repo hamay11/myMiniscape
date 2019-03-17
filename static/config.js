@@ -17,7 +17,7 @@ export const positions = {
     },
 };
 
-const characterNames = {
+export const characterNames = {
     kamanosuke: 'kamanosuke',
     juzo: 'juzo',
 };

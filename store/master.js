@@ -20,7 +20,7 @@ export const mutations = {
     },
     addCharacter (state, characterId) {
         console.log(characterId);
-        if (!state.characters.include(characterId)) {
+        if (!state.characters.list.includes(characterId)) {
           state.characters.list = [...state.characters.list, characterId,];
         }
     },
