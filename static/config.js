@@ -12,6 +12,12 @@ export const positions = {
 export const characterNames = {
     kamanosuke: 'kamanosuke',
     juzo: 'juzo',
+    saizo: 'saizo',
+    miyoshi: 'miyoshi',
+    kotaro: 'kotaro',
+    kogane: 'kogane',
+    kurosuke: 'kurosuke',
+    yukimura: 'yukimura',
 };
 
 /**

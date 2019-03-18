@@ -77,7 +77,7 @@ export default {
 }
 
 .reload {
-  top: 96px;
-  left: 56px;
+  bottom: 0;
+  right: 0;
 }
 </style>
