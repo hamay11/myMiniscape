@@ -1,5 +1,5 @@
 <template>
-<div class="main">
+<div>
   <button class="button reload" @click="setFieldCharacter">RELOAD</button>
   <div class="container layer_character">
     <div

@@ -24,6 +24,6 @@ export default {
 <style>
 .character {
   position: absolute;
-  width: 30vw;
+  width: 30%;
 }
 </style>

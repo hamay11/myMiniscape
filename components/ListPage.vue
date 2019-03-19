@@ -1,22 +1,20 @@
 <template>
-  <div class="main">
     <ul class="characterList">
       <li v-for="name in Object.keys(characterNames)" :key="name" class="characterList__item">
-        <div v-if="captured.includes(name)">
+        <div v-if="captured.includes(name)" class="characterList__item__box" >
           <div class="characterList__item__img">
           <img
             :src="require('../assets/' + characterObject(name).img)"
-            :style="{ width: 100 + '%' }"
+            :style="{ height: 100 + '%' }"
             border="0"
           />
           </div>
-          <span class="characterList__item__name">
+          <div class="characterList__item__name">
             {{ characterObject(name).name }}
-          </span>
+          </div>
         </div>
       </li>
     </ul>
-  </div>
 </template>
 
 <script>
@@ -43,30 +41,44 @@ export default {
 <style>
 .characterList {
   width: 100%;
-  height: 70%;
+  height: calc(100% - 32px);
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  padding: 4%;
+  padding: 8px;
+  background: #fff;
+  overflow: auto;
 }
 
 .characterList__item {
+  position: relative;
   display: block;
-  width: 25vw;
-  height: 20vh;
-  background: #ffcfe7;
-  border-radius: 10%;
-  margin: 8px;
+  width: 48%;
+  height: 32%;
+  background: #ffd583;
+  border-radius: 6%;
   text-align: center;
+  margin-bottom: 8px;
+}
+
+.characterList__item__box {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  padding: 16px 8px;
 }
 
 .characterList__item__img {
-  width: 100%;
-  height: 16vh;
+  height: 80%;
   line-height: 16vh;
   vertical-align: middle;
 }
 
 .characterList__item__name {
+  color: #fff;
+  width: 100%;
+  border-bottom: 1px solid #fff;
 }
 </style>

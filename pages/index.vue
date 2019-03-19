@@ -1,9 +1,11 @@
 <template>
-  <section class="main">
+  <div class="root">
+    <div class="main">
     <button class="button move" @click="movePage()">ほげ！</button>
     <FieldPage v-if="page === 'field'" />
     <ListPage v-if="page === 'list'" />
-  </section>
+  </div>
+  </div>
 </template>
 
 <script>
@@ -80,16 +82,28 @@ table {
 	border-spacing: 0;
 }
 
+.root {
+  display: flex;
+  vertical-align: middle;
+  width: 100vw;
+  height: 100vh;
+  background:repeating-linear-gradient(45deg, #ffd583 0, #ffd583 20px, #fff 20px, #fff 40px);
+}
 
 .main {
-  max-height: 100vh; /* TODO: PCのときもスマホくらいのサイズが出るようにしたい */
-  max-width: 100vw; /* TODO: PCのときもスマホくらいのサイズが出るようにしたい */
+  position: relative;
+  margin: auto;
+  display: block;
+  /* max-height: 1920px; /* TODO: PCのときもスマホくらいのサイズが出るようにしたい */
+  /* max-width: 1080px; /* TODO: PCのときもスマホくらいのサイズが出るようにしたい */
+  width: 360px;
+  height: 640px;
 }
 
 .button {
-  position: fixed;
+  position: absolute;
   height: 32px;
-  width: 50vw;
+  width: 50%;
   z-index: 10;
   background: #fff;
 }
