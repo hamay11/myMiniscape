@@ -1,6 +1,6 @@
 <template>
 <div>
-  <button class="button reload" @click="setFieldCharacter">RELOAD</button>
+  <button class="button reload" @click="setFieldCharacter"><ReloadIcon /></button>
   <div class="container layer_character">
     <div
       v-for="position in positionKeys"
@@ -25,11 +25,13 @@ import { mapMutations, } from 'vuex';
 import Field from '@/components/Field.vue';
 import Character from '@/components/Character.vue';
 import { characters, positions, } from '@/static/config.js';
+import ReloadIcon from '@/components/Icons/ReloadIcon.vue';
 
 export default {
   components: {
     Field,
     Character,
+    ReloadIcon,
   },
   // data: function () {},
   computed: {
@@ -77,7 +79,7 @@ export default {
 }
 
 .reload {
-  bottom: 0;
-  right: 0;
+  bottom: 72px;
+  right: 16px;
 }
 </style>

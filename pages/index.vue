@@ -1,10 +1,13 @@
 <template>
   <div class="root">
-    <div class="main">
-    <button class="button move" @click="movePage()">ほげ！</button>
-    <FieldPage v-if="page === 'field'" />
-    <ListPage v-if="page === 'list'" />
-  </div>
+      <div class="main">
+        <button class="button move" @click="movePage()">
+          <ListIcon v-if="page === 'field'" />
+          <HomeIcon v-if="page === 'list'" />
+        </button>
+        <FieldPage v-if="page === 'field'" />
+        <ListPage v-if="page === 'list'" />
+      </div>
   </div>
 </template>
 
@@ -12,11 +15,15 @@
 import { mapMutations, } from 'vuex';
 import FieldPage from '@/components/FieldPage.vue';
 import ListPage from '@/components/ListPage.vue';
+import ListIcon from '@/components/Icons/ListIcon.vue';
+import HomeIcon from '@/components/Icons/HomeIcon.vue';
 
 export default {
   components: {
     FieldPage,
     ListPage,
+    ListIcon,
+    HomeIcon,
   },
   computed: {
     page() {
@@ -102,14 +109,26 @@ table {
 
 .button {
   position: absolute;
-  height: 32px;
-  width: 50%;
+  height: 48px;
+  width: 48px;
   z-index: 10;
   background: #fff;
+  outline: none;
+  border: none;
+  border-radius: 4px;
+  text-align: center;
+  line-height: 48px;
+  cursor: pointer;
+  padding: 8px;
+  box-shadow: 2px 2px 2px 2px rgba(75, 75, 75, .2);
+}
+
+.button:active {
+  background: #ffebc5;
 }
 
 .move {
-  bottom: 0;
-  left: 0;
+  bottom: 16px;
+  right: 16px;
 }
 </style>

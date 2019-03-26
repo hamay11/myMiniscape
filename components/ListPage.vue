@@ -41,7 +41,7 @@ export default {
 <style>
 .characterList {
   width: 100%;
-  height: calc(100% - 32px);
+  height: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
