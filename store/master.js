@@ -3,6 +3,7 @@ import { characters, positions, } from '@/static/config';
 export const state = () => ({
     ui: { // 画面の表示とか
         page: 'field', // file | list
+        modal: '', // キャラクター名
     },
     characters: {
         list: [], // ゲット済のキャラクター一覧
@@ -39,6 +40,12 @@ export const mutations = {
         } else {
             state.ui.page = 'field';
         }
+    },
+    openModal (state, charaId) {
+        state.ui.modal = charaId;
+    },
+    closeModal (state) {
+        state.ui.modal = '';
     },
 };
 

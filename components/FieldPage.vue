@@ -5,14 +5,15 @@
     <div
       v-for="position in positionKeys"
       :key="position"
-      @click="addCharacter(characterId(position))">
+      @click="onClickCharacter(characterId(position))">
         <Character
-          v-if="getCharacter(position)"
-          :img="getCharacter(position).img"
-          :alt="getCharacter(position).name"
-          :position="getCharacter(position).positionStyle"
+          v-if="getFieldCharacter(position)"
+          :img="getFieldCharacter(position).img"
+          :alt="getFieldCharacter(position).name"
+          :position="getFieldCharacter(position).positionStyle"
         />
     </div>
+    <Modal v-if="isModalOpen" :character="getCharacter(modalCharacter)" />
   </div>
   <div class="container layer_background">
     <Field />
@@ -26,17 +27,25 @@ import Field from '@/components/Field.vue';
 import Character from '@/components/Character.vue';
 import { characters, positions, } from '@/static/config.js';
 import ReloadIcon from '@/components/Icons/ReloadIcon.vue';
+import Modal from '@/components/Modal.vue';
 
 export default {
   components: {
     Field,
     Character,
     ReloadIcon,
+    Modal,
   },
   // data: function () {},
   computed: {
     positionKeys: function() {
       return Object.keys(positions);
+    },
+    isModalOpen: function() {
+      return this.$store.state.master.ui.modal !== ''; 
+    },
+    modalCharacter: function() {
+      return this.$store.state.master.ui.modal;
     },
   },
   mounted() {
@@ -49,14 +58,22 @@ export default {
     ...mapMutations({
       setFieldCharacter: 'master/setFieldCharacter',
       addCharacter: 'master/addCharacter',
+      openModal: 'master/openModal',
     }),
-    getCharacter: function(position) {
+    getCharacter: function(id) {
+      return characters[id];
+    },
+    getFieldCharacter: function(position) {
       const charaId = this.$store.state.master.characters.field[positions[position]];
       return characters[charaId];
     },
     characterId: function(position) {
       // positionを受け取って返すようにしたい
       return this.$store.state.master.characters.field[positions[position]];
+    },
+    onClickCharacter: function(characterId) {
+      this.addCharacter(characterId);
+      this.openModal(characterId);
     },
   },
 };

@@ -28,7 +28,7 @@ export const characters = {
         name: '鎌ノ介',
         chara: characterNames.kamanosuke,
         img: 'kamanosuke.png',
-        description: '',
+        description: 'てあわせ ねがいたい！',
         position: positions.atTheGarden,
         rare: 1, // レア度の付け方は要検討
         positionStyle: {
@@ -40,7 +40,7 @@ export const characters = {
         name: '十蔵',
         chara: characterNames.juzo,
         img: 'juzo.png',
-        description: '',
+        description: 'はる ですね〜',
         position: positions.onTheTerrace,
         rare: 1, // debug
         positionStyle: {

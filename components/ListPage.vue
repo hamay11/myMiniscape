@@ -1,7 +1,7 @@
 <template>
     <ul class="characterList">
       <li v-for="name in Object.keys(characterNames)" :key="name" class="characterList__item">
-        <div v-if="captured.includes(name)" class="characterList__item__box" >
+        <div v-if="captured.includes(name)" class="characterList__item__box" @click="openModal(name)">
           <div class="characterList__item__img">
           <img
             :src="require('../assets/' + characterObject(name).img)"
@@ -14,25 +14,43 @@
           </div>
         </div>
       </li>
+      <Modal v-if="isModalOpen" :character="getCharacter(modalCharacter)" />
     </ul>
 </template>
 
 <script>
-import { characterNames,characters, }from '@/static/config.js';
+import { mapMutations, } from 'vuex';
+import { characterNames,characters, } from '@/static/config.js';
+import Modal from '@/components/Modal.vue';
+
 export default {
+  components: {
+    Modal,
+  },
     computed: {
         captured () {
-            return this.$store.state.master.characters.list;
+          return this.$store.state.master.characters.list;
         },
         characterNames () { 
-            return characterNames;
+          return characterNames;
         },
-        
+        isModalOpen: function() {
+          return this.$store.state.master.ui.modal !== ''; 
+        },
+        modalCharacter: function() {
+          return this.$store.state.master.ui.modal;
+        },
     },
     mounted() {
         console.log(this.$store.state.master.characters.list);
     },
     methods: {
+    ...mapMutations({
+      openModal: 'master/openModal',
+    }),
+        getCharacter: function(id) {
+      return characters[id];
+    },
         characterObject: (name) => characters[name],
     },
 };
@@ -68,6 +86,7 @@ export default {
   width: 100%;
   height: 100%;
   padding: 16px 8px;
+  cursor: pointer;
 }
 
 .characterList__item__img {
