@@ -4,7 +4,7 @@
         <div v-if="captured.includes(name)" class="characterList__item__box" @click="openModal(name)">
           <div class="characterList__item__img">
           <img
-            :src="require('../assets/' + characterObject(name).img)"
+            :src="characterObject(name).img"
             :style="{ height: 100 + '%' }"
             border="0"
           />

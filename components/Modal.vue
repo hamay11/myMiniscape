@@ -3,7 +3,7 @@
   <div class="overlay" @click="closeModal" />
   <div class="modal">
       <img
-        :src="require('../assets/' + character.img)"
+        :src="character.img"
         :style="{ height: 70 + '%' }"
         border="0"
       />

@@ -1,3 +1,6 @@
+import kamanosukeImg from '@/assets/kamanosuke.png';
+import juzoImg from '@/assets/juzo.png';
+
 /**
  * フィールド上でキャラクターが表示される位置
  * @property {string} key
@@ -27,7 +30,7 @@ export const characters = {
     kamanosuke: {
         name: '鎌ノ介',
         chara: characterNames.kamanosuke,
-        img: 'kamanosuke.png',
+        img: kamanosukeImg,
         description: 'てあわせ ねがいたい！',
         position: positions.atTheGarden,
         rare: 1, // レア度の付け方は要検討
@@ -39,7 +42,7 @@ export const characters = {
     juzo : {
         name: '十蔵',
         chara: characterNames.juzo,
-        img: 'juzo.png',
+        img: juzoImg,
         description: 'はる ですね〜',
         position: positions.onTheTerrace,
         rare: 1, // debug
