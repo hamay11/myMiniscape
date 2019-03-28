@@ -97,14 +97,25 @@ table {
   background:repeating-linear-gradient(45deg, #ffd583 0, #ffd583 20px, #fff 20px, #fff 40px);
 }
 
+
 .main {
   position: relative;
   margin: auto;
   display: block;
-  /* max-height: 1920px; /* TODO: PCのときもスマホくらいのサイズが出るようにしたい */
-  /* max-width: 1080px; /* TODO: PCのときもスマホくらいのサイズが出るようにしたい */
-  width: 360px;
-  height: 640px;
+  width: 56vh;
+  height: 100vh;
+}
+
+
+/* 縦長 スマホサイズ*/
+@media (orientation: portrait) and (max-width: 767px){
+.main {
+  position: relative;
+  margin: auto;
+  display: block;
+  width: 100vw;
+  height: 180vw;
+}
 }
 
 .button {
