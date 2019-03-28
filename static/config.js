@@ -1,5 +1,5 @@
-import kamanosukeImg from '@/assets/kamanosuke.png';
-import juzoImg from '@/assets/juzo.png';
+import kamanosukeImg from '@/static/kamanosuke.png';
+import juzoImg from '@/static/juzo.png';
 
 /**
  * フィールド上でキャラクターが表示される位置
