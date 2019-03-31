@@ -1,5 +1,8 @@
 import kamanosukeImg from '@/static/kamanosuke.png';
 import juzoImg from '@/static/juzo.png';
+import saizoImg from '@/static/saizo.png';
+import miyoshiImg from '@/static/miyoshi.png';
+import miyoshiDummyImg from '@/static/miyoshi_dummy.png';
 
 /**
  * フィールド上でキャラクターが表示される位置
@@ -49,6 +52,31 @@ export const characters = {
         positionStyle: {
             bottom: '22%',
             right: '20%',
+        },
+    },
+    saizo : {
+        name: '才蔵',
+        chara: characterNames.saizo,
+        img: saizoImg,
+        description: 'はる　だな！',
+        position: positions.onTheTerrace,
+        rare: 2, // debug
+        positionStyle: {
+            bottom: '22%',
+            right: '20%',
+        },
+    },
+    miyoshi : {
+        name: '三好',
+        chara: characterNames.miyoshi,
+        img: miyoshiImg,
+        subImg: miyoshiDummyImg,
+        description: '…',
+        position: positions.atTheGarden, // debug
+        rare: 2, // debug
+        positionStyle: {
+            bottom: '8%',
+            left: '10%',
         },
     },
 };

@@ -8,7 +8,7 @@
       @click="onClickCharacter(characterId(position))">
         <Character
           v-if="getFieldCharacter(position)"
-          :img="getFieldCharacter(position).img"
+          :img="getFieldCharacterImg(position)"
           :alt="getFieldCharacter(position).name"
           :position="getFieldCharacter(position).positionStyle"
         />
@@ -74,6 +74,10 @@ export default {
     onClickCharacter: function(characterId) {
       this.addCharacter(characterId);
       this.openModal(characterId);
+    },
+    getFieldCharacterImg: function(position) {
+      const chara = this.getFieldCharacter(position);
+      return chara.subImg ? chara.subImg : chara.img;
     },
   },
 };
