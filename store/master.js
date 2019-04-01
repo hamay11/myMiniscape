@@ -10,6 +10,8 @@ export const state = () => ({
         field: { // フィールド上のキャラクター
             [positions.atTheGarden]: '',
             [positions.onTheTerrace]: '',
+            [positions.onTheLoof]: '',
+            [positions.onTheTree]: '',
         },
     },
 });
@@ -26,6 +28,8 @@ export const mutations = {
         state.characters.field = {
             [positions.atTheGarden]: setChara(positions.atTheGarden),
             [positions.onTheTerrace]: setChara(positions.onTheTerrace),
+            [positions.onTheLoof]: setChara(positions.onTheLoof),
+            [positions.onTheTree]: setChara(positions.onTheTree),
         };
     },
     addCharacter (state, characterId) {

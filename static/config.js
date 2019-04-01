@@ -6,7 +6,7 @@ import miyoshiDummyImg from '@/static/miyoshi_dummy.png';
 import koganeImg from '@/static/kogane.png';
 import kurosukeImg from '@/static/kurosuke.png';
 import kotaroImg from '@/static/kotaro.png';
-import yukimuraImg from '@/static/yukimura.png';
+// import yukimuraImg from '@/static/yukimura.png';
 
 /**
  * フィールド上でキャラクターが表示される位置
@@ -17,6 +17,8 @@ import yukimuraImg from '@/static/yukimura.png';
 export const positions = {
     onTheTerrace: 'ON_THE_TERRACE',
     atTheGarden: 'AT_THE_GARDEN',
+    onTheLoof: 'ON_THE_LOOF',
+    onTheTree: 'ON_THE_TREE',
 };
 
 export const characterNames = {
@@ -76,11 +78,11 @@ export const characters = {
         img: miyoshiImg,
         subImg: miyoshiDummyImg,
         description: '…',
-        position: positions.atTheGarden, // debug
+        position: positions.onTheLoof,
         rare: 2, // debug
         positionStyle: {
-            bottom: '8%',
-            left: '10%',
+            top: '38%',
+            right: '16%',
         },
     },
     kogane : {
@@ -88,7 +90,7 @@ export const characters = {
         chara: characterNames.kogane,
         img: koganeImg,
         description: 'はるの しんきょく いくよ〜！',
-        position: positions.atTheGarden, // debug
+        position: positions.atTheGarden,
         rare: 3, // debug
         positionStyle: {
             bottom: '8%',
@@ -100,11 +102,11 @@ export const characters = {
         chara: characterNames.kurosuke,
         img: kurosukeImg,
         description: 'へいわな もんだな',
-        position: positions.atTheGarden, // debug
+        position: positions.onTheTree,
         rare: 3, // debug
         positionStyle: {
-            bottom: '8%',
-            left: '10%',
+            top: '20%',
+            left: '30%',
         },
     },
     kotaro : {
@@ -112,14 +114,14 @@ export const characters = {
         chara: characterNames.kurosuke,
         img: kotaroImg,
         description: 'さくら きれいで ござる！',
-        position: positions.onTheTerrace, // debug
+        position: positions.onTheTree,
         rare: 3, // debug
         positionStyle: {
-            bottom: '22%',
-            right: '20%',
+            top: '22%',
+            left: '36%',
         },
     },
-    yukimura : {
+    /* yukimura : {
         name: '幸村',
         chara: characterNames.yukimura,
         img: yukimuraImg,
@@ -130,5 +132,5 @@ export const characters = {
             bottom: '22%',
             right: '20%',
         },
-    },
+    }, */
 };
