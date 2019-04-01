@@ -3,6 +3,10 @@ import juzoImg from '@/static/juzo.png';
 import saizoImg from '@/static/saizo.png';
 import miyoshiImg from '@/static/miyoshi.png';
 import miyoshiDummyImg from '@/static/miyoshi_dummy.png';
+import koganeImg from '@/static/kogane.png';
+import kurosukeImg from '@/static/kurosuke.png';
+import kotaroImg from '@/static/kotaro.png';
+import yukimuraImg from '@/static/yukimura.png';
 
 /**
  * フィールド上でキャラクターが表示される位置
@@ -77,6 +81,54 @@ export const characters = {
         positionStyle: {
             bottom: '8%',
             left: '10%',
+        },
+    },
+    kogane : {
+        name: 'こがね',
+        chara: characterNames.kogane,
+        img: koganeImg,
+        description: 'はるの しんきょく いくよ〜！',
+        position: positions.atTheGarden, // debug
+        rare: 3, // debug
+        positionStyle: {
+            bottom: '8%',
+            left: '10%',
+        },
+    },
+    kurosuke : {
+        name: '黒助',
+        chara: characterNames.kurosuke,
+        img: kurosukeImg,
+        description: 'へいわな もんだな',
+        position: positions.atTheGarden, // debug
+        rare: 3, // debug
+        positionStyle: {
+            bottom: '8%',
+            left: '10%',
+        },
+    },
+    kotaro : {
+        name: '小太郎',
+        chara: characterNames.kurosuke,
+        img: kotaroImg,
+        description: 'さくら きれいで ござる！',
+        position: positions.onTheTerrace, // debug
+        rare: 3, // debug
+        positionStyle: {
+            bottom: '22%',
+            right: '20%',
+        },
+    },
+    yukimura : {
+        name: '幸村',
+        chara: characterNames.yukimura,
+        img: yukimuraImg,
+        description: 'たのしんで いただけたかな',
+        position: positions.onTheTerrace, // debug
+        rare: 5, // debug
+        positionStyle: {
+            bottom: '22%',
+            right: '20%',
         },
     },
 };
