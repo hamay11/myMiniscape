@@ -65,6 +65,7 @@ time, mark, audio, video {
 	font: inherit;
 	vertical-align: baseline;
   box-sizing: border-box;
+  /* google web font */
   font-family: 'M PLUS Rounded 1c', sans-serif;
 }
 /* HTML5 display-role reset for older browsers */
@@ -104,7 +105,7 @@ table {
   position: relative;
   margin: auto;
   display: block;
-  width: 56vh;
+  width: 57vh;
   height: 100vh;
 }
 
@@ -116,7 +117,7 @@ table {
   margin: auto;
   display: block;
   width: 100vw;
-  height: 180vw;
+  height: 178vw;
 }
 }
 
