@@ -1,5 +1,5 @@
 <template>
-  <div>
+<div>
   <div class="overlay" @click="closeModal" />
   <div class="modal">
       <img
@@ -9,16 +9,23 @@
       />
       <div>{{ character.name }}</div>
       <div>「{{ character.description }}」</div>
-      <button class="close" @click="closeModal">x</button>
-  </div>
-  </div>
+      <button class="close" @click="closeModal">
+          <CloseIcon />
+          <span>とじる</span>
+      </button>
+    </div>
+</div>
 </template>
 
 <script>
 import { mapMutations, } from 'vuex';
+import CloseIcon from '@/components/Icons/CloseIcon.vue';
 // import { characterNames, characters, }from '@/static/config.js';
 
 export default {
+  components: {
+    CloseIcon,
+  },
   props: {
     character: {
       type: Object,
@@ -44,6 +51,9 @@ export default {
 }
 
 .modal {
+    align-self: center;
+    transition: all .3s ease;
+
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -61,13 +71,22 @@ export default {
     text-align: center;
     align-items: center;
     box-shadow: 2px 2px 2px 2px rgba(75, 75, 75, .2);
+
 }
 
 .close {
+    display: flex;
+    padding: 0;
     cursor: pointer;
     background: none;
     border: none;
-    width: 16px;
-    height: 16px;
+    height: 12px;
+    line-height: 12px;
+    vertical-align: middle;
+}
+.close > span {
+    margin-left: 4px;
+    height: 12px;
+    line-height: 12px;
 }
 </style>

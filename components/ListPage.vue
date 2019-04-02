@@ -26,7 +26,9 @@
           </div>
         </div>
       </li>
-      <Modal v-if="isModalOpen" :character="getCharacter(modalCharacter)" />
+      <transition name="fade">
+        <Modal v-if="isModalOpen" :character="getCharacter(modalCharacter)" />
+      </transition>
     </ul>
 </template>
 

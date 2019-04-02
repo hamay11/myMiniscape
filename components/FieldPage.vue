@@ -13,7 +13,9 @@
           :position="getFieldCharacter(position).positionStyle"
         />
     </div>
-    <Modal v-if="isModalOpen" :character="getCharacter(modalCharacter)" />
+    <transition name="fade">
+      <Modal v-if="isModalOpen" :character="getCharacter(modalCharacter)" />
+    </transition>
   </div>
   <div class="container layer_background">
     <Field />
@@ -102,5 +104,16 @@ export default {
 .reload {
   bottom: 72px;
   right: 16px;
+}
+
+/* animation */
+.fade-enter .modal, .fade-leave-to .modal {
+  opacity: 0;
+  transform: scale(0);
+}
+
+.fade-enter-to .modal, .fade-leave .modal {
+  opacity: 1;
+  transform: scale(1);
 }
 </style>
