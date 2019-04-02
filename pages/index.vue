@@ -8,6 +8,7 @@
         <FieldPage v-if="page === 'field'" />
         <ListPage v-if="page === 'list'" />
       </div>
+      <link href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c" rel="stylesheet">
   </div>
 </template>
 
@@ -64,6 +65,7 @@ time, mark, audio, video {
 	font: inherit;
 	vertical-align: baseline;
   box-sizing: border-box;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
