@@ -89,7 +89,7 @@ export const characters = {
         name: 'こがね',
         chara: characterNames.kogane,
         img: koganeImg,
-        description: 'はるの しんきょく いくよ〜！',
+        description: 'しんきょく いくよ〜！',
         position: positions.atTheGarden,
         rare: 3, // debug
         positionStyle: {

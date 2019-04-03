@@ -9,6 +9,7 @@
         border="0"
       />
       <div>{{ character.name }}</div>
+      <div class="charaInfo__rare">{{ showRareWithStars(character.rare) }}</div>
       <div>「{{ character.description }}」</div>
       <button class="close" @click="closeModal">
           <CloseIcon />
@@ -40,6 +41,10 @@ export default {
     ...mapGetters({
       isNew: 'master/isNew',
     }),
+    showRareWithStars: function(rare) {
+        const stars = [...Array(rare),].map(() => { return '★';});
+        return stars.join('');
+    },
   },
 };
 </script>
@@ -62,13 +67,13 @@ export default {
     flex-direction: column;
     justify-content: space-between;
     box-sizing: border-box;
-    padding: 24px;
+    padding: 24px 8px;
     position: absolute;
     z-index: 25;
-    width: 70%;
+    width: 80%;
     height: 60%;
     top: 20%;
-    left: 15%;
+    left: 10%;
     border: 2px solid #fff;
     border-radius: 4px;
     background: #ffd583;
@@ -105,5 +110,9 @@ export default {
     line-height: 24px;
     top: -12px;
     box-shadow: 1px 1px 1px 1px rgba(75, 75, 75, .2);
+}
+
+.charaInfo__rare {
+    font-size: 10px;
 }
 </style>
