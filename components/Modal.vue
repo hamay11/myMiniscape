@@ -2,6 +2,7 @@
 <div>
   <div class="overlay" @click="closeModal" />
   <div class="modal">
+      <div v-if="isNew()" class="patch__new">new!</div>
       <img
         :src="character.img"
         :style="{ height: 70 + '%' }"
@@ -18,7 +19,7 @@
 </template>
 
 <script>
-import { mapMutations, } from 'vuex';
+import { mapMutations, mapGetters,} from 'vuex';
 import CloseIcon from '@/components/Icons/CloseIcon.vue';
 // import { characterNames, characters, }from '@/static/config.js';
 
@@ -32,11 +33,14 @@ export default {
       required: true,
     },
   },
-    methods: {
-      ...mapMutations({
-        closeModal: 'master/closeModal',
-      }),
-    },
+  methods: {
+    ...mapMutations({
+      closeModal: 'master/closeModal',
+    }),
+    ...mapGetters({
+      isNew: 'master/isNew',
+    }),
+  },
 };
 </script>
 
@@ -88,5 +92,18 @@ export default {
     margin-left: 4px;
     height: 12px;
     line-height: 12px;
+}
+
+.patch__new {
+    position: absolute;
+    background: red;
+    color: #fff;
+    font-weight: bold;
+    width: 56px;
+    border-radius: 14px;
+    height: 24px;
+    line-height: 24px;
+    top: -12px;
+    box-shadow: 1px 1px 1px 1px rgba(75, 75, 75, .2);
 }
 </style>

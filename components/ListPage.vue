@@ -1,7 +1,7 @@
 <template>
     <ul class="characterList">
       <li v-for="name in Object.keys(characterNames)" :key="name" class="characterList__item">
-        <div v-if="captured.includes(name)" class="characterList__item__box" @click="openModal(name)">
+        <div v-if="captured.includes(name)" class="characterList__item__box" @click="openModal({ chara: name })">
           <div class="characterList__item__img">
           <img
             :src="characterObject(name).img"
@@ -59,7 +59,7 @@ export default {
         },
     },
     mounted() {
-        console.log(this.$store.state.master.characters.list);
+        // console.log(this.$store.state.master.characters.list);
     },
     methods: {
       ...mapMutations({

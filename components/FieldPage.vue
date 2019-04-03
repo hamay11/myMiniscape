@@ -75,8 +75,12 @@ export default {
       return this.$store.state.master.characters.field[positions[position]];
     },
     onClickCharacter: function(characterId) {
+      const isNew = !this.$store.state.master.characters.list.includes(characterId);
+      this.openModal({
+        chara: characterId,
+        isNew,
+      });
       this.addCharacter(characterId);
-      this.openModal(characterId);
     },
     getFieldCharacterImg: function(position) {
       const chara = this.getFieldCharacter(position);

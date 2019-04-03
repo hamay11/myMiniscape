@@ -36,7 +36,6 @@ export const mutations = {
         };
     },
     addCharacter (state, characterId) {
-        console.log(characterId);
         if (!state.characters.list.includes(characterId)) {
           state.characters.list = [...state.characters.list, characterId,];
         }
@@ -48,8 +47,9 @@ export const mutations = {
             state.ui.page = 'field';
         }
     },
-    openModal (state, charaId) {
-        state.ui.modal.chara = charaId;
+    openModal (state, modal) {
+        state.ui.modal.chara = modal.chara;
+        state.ui.modal.isNew = modal.isNew || false;
     },
     closeModal (state) {
         state.ui.modal.chara = '';
@@ -59,5 +59,8 @@ export const mutations = {
 export const getters = {
     isModalOpen: (state) => {
         return state.ui.modal.chara !== ''; 
+    },
+    isNew: (state) => {
+        return state.ui.modal.isNew;
     },
 };
