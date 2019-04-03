@@ -27,13 +27,13 @@
         </div>
       </li>
       <transition name="fade">
-        <Modal v-if="isModalOpen" :character="getCharacter(modalCharacter)" />
+        <Modal v-if="isModalOpen()" :character="getCharacter(modalCharacter)" />
       </transition>
     </ul>
 </template>
 
 <script>
-import { mapMutations, } from 'vuex';
+import { mapMutations, mapGetters, } from 'vuex';
 import { characterNames,characters, } from '@/static/config.js';
 import dummyImg from '@/static/dummy.png';
 import Modal from '@/components/Modal.vue';
@@ -54,24 +54,24 @@ export default {
         characterNames () { 
           return characterNames;
         },
-        isModalOpen: function() {
-          return this.$store.state.master.ui.modal !== ''; 
-        },
         modalCharacter: function() {
-          return this.$store.state.master.ui.modal;
+          return this.$store.state.master.ui.modal.chara;
         },
     },
     mounted() {
         console.log(this.$store.state.master.characters.list);
     },
     methods: {
-    ...mapMutations({
-      openModal: 'master/openModal',
-    }),
-        getCharacter: function(id) {
-      return characters[id];
-    },
-        characterObject: (name) => characters[name],
+      ...mapMutations({
+        openModal: 'master/openModal',
+      }),
+      ...mapGetters({
+        isModalOpen: 'master/isModalOpen',
+      }),
+      getCharacter: function(id) {
+        return characters[id];
+      },
+      characterObject: (name) => characters[name],
     },
 };
 </script>

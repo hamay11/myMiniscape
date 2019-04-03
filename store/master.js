@@ -3,7 +3,10 @@ import { characters, positions, } from '@/static/config';
 export const state = () => ({
     ui: { // 画面の表示とか
         page: 'field', // file | list
-        modal: '', // キャラクター名
+        modal: {
+            chara: '', // キャラクター名
+            isNew: false, // 初回表示フラグ
+        },
     },
     characters: {
         list: [], // ゲット済のキャラクター一覧
@@ -46,11 +49,15 @@ export const mutations = {
         }
     },
     openModal (state, charaId) {
-        state.ui.modal = charaId;
+        state.ui.modal.chara = charaId;
     },
     closeModal (state) {
-        state.ui.modal = '';
+        state.ui.modal.chara = '';
     },
 };
 
-export const getters = () => {};
+export const getters = {
+    isModalOpen: (state) => {
+        return state.ui.modal.chara !== ''; 
+    },
+};

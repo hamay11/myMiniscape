@@ -14,7 +14,7 @@
         />
     </div>
     <transition name="fade">
-      <Modal v-if="isModalOpen" :character="getCharacter(modalCharacter)" />
+      <Modal v-if="isModalOpen()" :character="getCharacter(modalCharacter)"/>
     </transition>
   </div>
   <div class="container layer_background">
@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import { mapMutations, } from 'vuex';
+import { mapMutations, mapGetters, } from 'vuex';
 import Field from '@/components/Field.vue';
 import Character from '@/components/Character.vue';
 import { characters, positions, } from '@/static/config.js';
@@ -43,11 +43,9 @@ export default {
     positionKeys: function() {
       return Object.keys(positions);
     },
-    isModalOpen: function() {
-      return this.$store.state.master.ui.modal !== ''; 
-    },
     modalCharacter: function() {
-      return this.$store.state.master.ui.modal;
+      console.log(this.$store.state.master.ui.modal.chara);
+      return this.$store.state.master.ui.modal.chara;
     },
   },
   mounted() {
@@ -61,6 +59,9 @@ export default {
       setFieldCharacter: 'master/setFieldCharacter',
       addCharacter: 'master/addCharacter',
       openModal: 'master/openModal',
+    }),
+    ...mapGetters({
+      isModalOpen: 'master/isModalOpen',
     }),
     getCharacter: function(id) {
       return characters[id];
