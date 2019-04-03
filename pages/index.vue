@@ -1,6 +1,9 @@
 <template>
   <div class="root">
       <div class="main">
+      <transition name="fade">
+        <Modal v-if="isModalOpen()" :character="getCharacter(modalCharacter)" />
+      </transition>
         <button class="button move" @click="movePage()">
           <ListIcon v-if="page === 'field'" />
           <HomeIcon v-if="page === 'list'" />
@@ -13,11 +16,13 @@
 </template>
 
 <script>
-import { mapMutations, } from 'vuex';
+import { mapMutations, mapGetters, } from 'vuex';
+import { characters, } from '@/static/config.js';
 import FieldPage from '@/components/FieldPage.vue';
 import ListPage from '@/components/ListPage.vue';
 import ListIcon from '@/components/Icons/ListIcon.vue';
 import HomeIcon from '@/components/Icons/HomeIcon.vue';
+import Modal from '@/components/Modal.vue';
 
 export default {
   components: {
@@ -25,16 +30,26 @@ export default {
     ListPage,
     ListIcon,
     HomeIcon,
+    Modal,
   },
   computed: {
     page() {
       return this.$store.state.master.ui.page;
+    },
+    modalCharacter() {
+      return this.$store.state.master.ui.modal.chara;
     },
   },
   methods: {
     ...mapMutations({
       movePage: 'master/movePage',
     }),
+    ...mapGetters({
+      isModalOpen: 'master/isModalOpen',
+    }),
+    getCharacter: function(id) {
+      return characters[id];
+    },
   },
 };
 </script>

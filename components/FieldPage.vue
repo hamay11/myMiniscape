@@ -13,9 +13,6 @@
           :position="getFieldCharacter(position).positionStyle"
         />
     </div>
-    <transition name="fade">
-      <Modal v-if="isModalOpen()" :character="getCharacter(modalCharacter)"/>
-    </transition>
   </div>
   <div class="container layer_background">
     <Field />
@@ -24,28 +21,22 @@
 </template>
 
 <script>
-import { mapMutations, mapGetters, } from 'vuex';
+import { mapMutations, } from 'vuex';
 import Field from '@/components/Field.vue';
 import Character from '@/components/Character.vue';
 import { characters, positions, } from '@/static/config.js';
 import ReloadIcon from '@/components/Icons/ReloadIcon.vue';
-import Modal from '@/components/Modal.vue';
 
 export default {
   components: {
     Field,
     Character,
     ReloadIcon,
-    Modal,
   },
   // data: function () {},
   computed: {
     positionKeys: function() {
       return Object.keys(positions);
-    },
-    modalCharacter: function() {
-      console.log(this.$store.state.master.ui.modal.chara);
-      return this.$store.state.master.ui.modal.chara;
     },
   },
   mounted() {
@@ -60,12 +51,6 @@ export default {
       addCharacter: 'master/addCharacter',
       openModal: 'master/openModal',
     }),
-    ...mapGetters({
-      isModalOpen: 'master/isModalOpen',
-    }),
-    getCharacter: function(id) {
-      return characters[id];
-    },
     getFieldCharacter: function(position) {
       const charaId = this.$store.state.master.characters.field[positions[position]];
       return characters[charaId];
