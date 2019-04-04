@@ -1,7 +1,6 @@
 <template>
-<div>
-  <div class="overlay" @click="closeModal" />
-  <div class="modal">
+  <div class="overlay" @click="closeModal">
+    <div class="modal">
       <div v-if="isNew()" class="patch__new">new!</div>
       <img
         :src="character.img"
@@ -11,23 +10,15 @@
       <div>{{ character.name }}</div>
       <div class="charaInfo__rare">{{ showRareWithStars(character.rare) }}</div>
       <div>「{{ character.description }}」</div>
-      <button class="close" @click="closeModal">
-          <CloseIcon />
-          <span>とじる</span>
-      </button>
     </div>
-</div>
+  </div>
 </template>
 
 <script>
 import { mapMutations, mapGetters,} from 'vuex';
-import CloseIcon from '@/components/Icons/CloseIcon.vue';
 // import { characterNames, characters, }from '@/static/config.js';
 
 export default {
-  components: {
-    CloseIcon,
-  },
   props: {
     character: {
       type: Object,
