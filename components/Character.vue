@@ -1,5 +1,5 @@
 <template>
-    <img :src="img" :alt="alt" :style="position" class="character" border="0">
+    <img :src="img" :alt="alt" :style="position" :class="id" class="character" border="0">
 </template>
 
 <script>
@@ -17,6 +17,10 @@ export default {
       type: Object,
       required: true,
     },
+    id: {
+      type: String,
+      required: true,
+    },
   },
 };
 </script>
@@ -25,5 +29,9 @@ export default {
 .character {
   position: absolute;
   width: 30%;
+}
+
+.kurosuke {
+  width: 25%;
 }
 </style>

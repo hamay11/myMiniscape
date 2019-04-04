@@ -11,6 +11,7 @@
           :img="getFieldCharacterImg(position)"
           :alt="getFieldCharacter(position).name"
           :position="getFieldCharacter(position).positionStyle"
+          :id="getFieldCharacter(position).chara"
         />
     </div>
   </div>
