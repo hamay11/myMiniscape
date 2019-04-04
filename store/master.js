@@ -35,6 +35,14 @@ export const mutations = {
             [positions.onTheTree]: setChara(positions.onTheTree),
         };
     },
+    resetFieldCharacter (state) {
+        state.characters.field = {
+            [positions.atTheGarden]: '',
+            [positions.onTheTerrace]: '',
+            [positions.onTheLoof]: '',
+            [positions.onTheTree]: '',
+        };
+    },
     addCharacter (state, characterId) {
         if (!state.characters.list.includes(characterId)) {
           state.characters.list = [...state.characters.list, characterId,];

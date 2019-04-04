@@ -40,6 +40,7 @@ export default {
     },
   },
   mounted() {
+    this.resetFieldCharacter();
     this.setFieldCharacter();
   },
   updated() {
@@ -48,6 +49,7 @@ export default {
   methods: {
     ...mapMutations({
       setFieldCharacter: 'master/setFieldCharacter',
+      resetFieldCharacter: 'master/resetFieldCharacter',
       addCharacter: 'master/addCharacter',
       openModal: 'master/openModal',
     }),
