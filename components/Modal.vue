@@ -3,13 +3,13 @@
     <div class="modal__overlay" />
     <div class="modal__content">
       <div v-if="isNew()" class="patch__new">new!</div>
+      <div class="charaInfo__rare">{{ showRareWithStars(character.rare) }}</div>
       <img
         :src="character.img"
         :style="{ height: 70 + '%' }"
         border="0"
       />
       <div>{{ character.name }}</div>
-      <div class="charaInfo__rare">{{ showRareWithStars(character.rare) }}</div>
       <div>「{{ character.description }}」</div>
     </div>
   </div>
@@ -49,6 +49,7 @@ export default {
     left: 0;
     width: 100%;
     height: 100%;
+    font-size: 28px;
 }
 
 .modal__overlay {
@@ -66,7 +67,7 @@ export default {
     flex-direction: column;
     justify-content: space-between;
     box-sizing: border-box;
-    padding: 24px 8px;
+    padding: 12% 4%;
     position: absolute;
     z-index: 25;
     width: 80%;
@@ -103,15 +104,25 @@ export default {
     background: red;
     color: #fff;
     font-weight: bold;
-    width: 56px;
-    border-radius: 14px;
-    height: 24px;
-    line-height: 24px;
+    width: 28%;
+    border-radius: 25% / 50%;
+    height: 8%;
+    line-height: 1.5;
     top: -12px;
     box-shadow: 1px 1px 1px 1px rgba(75, 75, 75, .2);
 }
 
 .charaInfo__rare {
-    font-size: 10px;
+    font-size: 30px;
+}
+
+/* 縦長 スマホサイズ*/
+@media (orientation: portrait) and (max-width: 767px){
+    .modal__wrapper {
+      font-size: 100%;
+    }
+    .charaInfo__rare {
+      font-size: 12px;
+    }
 }
 </style>

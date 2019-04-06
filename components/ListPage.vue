@@ -67,9 +67,10 @@ export default {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  padding: 8px;
+  padding: 4%;
   background: #fff;
   overflow: auto;
+  font-size: 24px;
 }
 
 .characterList__item {
@@ -80,7 +81,7 @@ export default {
   background: #ffd583;
   border-radius: 6%;
   text-align: center;
-  margin-bottom: 8px;
+  margin-bottom: 4%;
 }
 
 .characterList__item__box {
@@ -112,7 +113,14 @@ export default {
   color: #000;
   width: 80%;
   border-bottom: 1px solid #fff;
-  border-radius: 8px;
+  border-radius: 25px;
   margin: 0 auto;
+}
+
+/* 縦長 スマホサイズ*/
+@media (orientation: portrait) and (max-width: 767px){
+    .characterList {
+      font-size: 100%;
+    }
 }
 </style>
