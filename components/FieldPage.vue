@@ -75,7 +75,6 @@ export default {
       return chara.subImg ? chara.subImg : chara.img;
     },
     onClickReload: function(){
-      console.log('hogeee');
       this.resetFieldCharacter();
       this.setFieldCharacter();
     },
@@ -105,12 +104,12 @@ export default {
 }
 
 /* animation */
-.fade-enter .modal, .fade-leave-to .modal {
+.fade-enter .modal__content, .fade-leave-to .modal__content {
   opacity: 0;
   transform: scale(0);
 }
 
-.fade-enter-to .modal, .fade-leave .modal {
+.fade-enter-to .modal__content, .fade-leave .modal__content {
   opacity: 1;
   transform: scale(1);
 }

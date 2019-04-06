@@ -1,6 +1,7 @@
 <template>
-  <div class="overlay" @click="closeModal">
-    <div class="modal">
+  <div class="modal__wrapper" @click="closeModal">
+    <div class="modal__overlay" />
+    <div class="modal__content">
       <div v-if="isNew()" class="patch__new">new!</div>
       <img
         :src="character.img"
@@ -41,7 +42,7 @@ export default {
 </script>
 
 <style>
-.overlay {
+.modal__wrapper {
     position: absolute;
     z-index: 20;
     top: 0;
@@ -50,7 +51,14 @@ export default {
     height: 100%;
 }
 
-.modal {
+.modal__overlay {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: rgba(75, 75, 75, .2);
+}
+
+.modal__content {
     align-self: center;
     transition: all .3s ease;
 

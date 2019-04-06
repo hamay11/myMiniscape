@@ -30,7 +30,6 @@ export default {
   },
   updated: function () {
   this.$nextTick(function () {
-    // console.log('updated nextTick');
     this.setAnimation();
   });
 },
