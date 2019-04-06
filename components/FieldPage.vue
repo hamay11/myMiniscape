@@ -1,6 +1,6 @@
 <template>
 <div>
-  <button class="button reload" @click="setFieldCharacter"><ReloadIcon /></button>
+  <button class="button reload" @click="onClickReload"><ReloadIcon /></button>
   <div class="container layer_character">
     <div
       v-for="position in positionKeys"
@@ -73,6 +73,11 @@ export default {
     getFieldCharacterImg: function(position) {
       const chara = this.getFieldCharacter(position);
       return chara.subImg ? chara.subImg : chara.img;
+    },
+    onClickReload: function(){
+      console.log('hogeee');
+      this.resetFieldCharacter();
+      this.setFieldCharacter();
     },
   },
 };

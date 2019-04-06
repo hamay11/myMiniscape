@@ -25,14 +25,15 @@ export default {
       required: true,
     },
   },
-  watch: {
-    id() {
-      this.setAnimation();
-    },
-  },
   mounted() {
     this.setAnimation();
   },
+  updated: function () {
+  this.$nextTick(function () {
+    // console.log('updated nextTick');
+    this.setAnimation();
+  });
+},
   methods: {
     setAnimation: function(){
       if (!this.id) {
@@ -100,15 +101,18 @@ export default {
         case characterNames.kamanosuke:
           anime({
             targets: '.kamanosuke',
-            direction: 'alternate',
-            easing: 'easeInOutCubic',
+            direction: 'normal',
+            easing: 'easeInOutQuart',
             loop: true,
             translateY:[
+              { value: -10, delay: 300, easing: 'easeInSine',},
+              { value: 0, easing: 'easeOutSine',},
               { value: -10, delay: 300, easing: 'easeInSine',},
               { value: 0, easing: 'easeOutSine',},
             ],
             translateX: [
               { value: 20, delay: 300, },
+              { value: 0, delay: 300, },
             ],
             duration: 700,
           });
@@ -127,6 +131,8 @@ export default {
             ],
             duration: 2000,
           });
+          break;
+        default:
           break;
       };
     },
