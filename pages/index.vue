@@ -4,12 +4,13 @@
       <transition name="fade">
         <Modal v-if="isModalOpen()" :character="getCharacter(modalCharacter)" />
       </transition>
-        <button class="button move" @click="movePage()">
+        <button v-show="page !== 'index'" class="button move" @click="movePage()">
           <ListIcon v-if="page === 'field'" />
           <HomeIcon v-if="page === 'list'" />
         </button>
         <FieldPage v-if="page === 'field'" />
         <ListPage v-if="page === 'list'" />
+        <IndexPage v-if="page === 'index'" />
       </div>
       <link href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c" rel="stylesheet">
   </div>
@@ -20,14 +21,17 @@ import { mapMutations, mapGetters, } from 'vuex';
 import { characters, } from '@/static/config.js';
 import FieldPage from '@/components/FieldPage.vue';
 import ListPage from '@/components/ListPage.vue';
+import IndexPage from '@/components/IndexPage.vue';
 import ListIcon from '@/components/Icons/ListIcon.vue';
 import HomeIcon from '@/components/Icons/HomeIcon.vue';
 import Modal from '@/components/Modal.vue';
+// import anime from 'animejs';
 
 export default {
   components: {
     FieldPage,
     ListPage,
+    IndexPage,
     ListIcon,
     HomeIcon,
     Modal,
@@ -40,6 +44,22 @@ export default {
       return this.$store.state.master.ui.modal.chara;
     },
   },
+  /* mounted: function() {
+    this.$nextTick(function () {
+    // 動かねえ〜って思ってたけどその前に冷静に考えてroot動かしちゃダメだわ
+    anime({
+        targets: '.root',
+        direction: 'normal',
+        easing: 'linear',
+        transleteX: [
+          { value: 0, },
+          { value: 30, },
+        ],
+        loop: true,
+        duration: 3000,
+      });
+    });
+  }, */
   methods: {
     ...mapMutations({
       movePage: 'master/movePage',

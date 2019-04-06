@@ -68,12 +68,13 @@ export default {
   flex-wrap: wrap;
   justify-content: space-between;
   padding: 4%;
-  background: #fff;
   overflow: auto;
   font-size: 24px;
 }
 
 .characterList__item {
+  box-sizing: border-box;
+  border: 2px solid #fff;
   position: relative;
   display: block;
   width: 48%;

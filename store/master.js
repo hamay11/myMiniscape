@@ -2,7 +2,7 @@ import { characters, positions, } from '@/static/config';
 
 export const state = () => ({
     ui: { // 画面の表示とか
-        page: 'field', // file | list
+        page: 'index', // file | list | index
         modal: {
             chara: '', // キャラクター名
             isNew: false, // 初回表示フラグ

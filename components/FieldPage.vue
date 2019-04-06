@@ -144,8 +144,6 @@ export default {
 
 .reload__overlay__circle{
   transform: rotateX(180deg) rotate(90deg);
-  /* transform: rotate(90deg) rotateY(180deg); */
-  /* transform: rotateX(-90deg); */
   fill: transparent;
   stroke: rgba(75,75,75,.4);;
   stroke-width: 40;
