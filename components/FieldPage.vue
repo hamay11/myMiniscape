@@ -1,6 +1,11 @@
 <template>
 <div>
-  <button class="button reload" @click="onClickReload"><ReloadIcon /></button>
+    <button class="button reload" @click="onClickReload">
+      <ReloadIcon class="reload__icon"/>
+      <svg :class="{ hidden: !reloading }" class="reload__overlay" height="48px">
+        <circle r="20" cx="-24" cy="-24" class="reload__overlay__circle" />
+      </svg>
+  </button>
   <div class="container layer_character">
     <div
       v-for="position in positionKeys"
@@ -22,11 +27,12 @@
 </template>
 
 <script>
-import { mapMutations, } from 'vuex';
+import { mapMutations, mapActions, mapState, } from 'vuex';
 import Field from '@/components/Field.vue';
 import Character from '@/components/Character.vue';
 import { characters, positions, } from '@/static/config.js';
 import ReloadIcon from '@/components/Icons/ReloadIcon.vue';
+import anime from 'animejs';
 
 export default {
   components: {
@@ -36,6 +42,9 @@ export default {
   },
   // data: function () {},
   computed: {
+    ...mapState({
+      reloading: state => state.master.ui.reloading,
+    }),
     positionKeys: function() {
       return Object.keys(positions);
     },
@@ -45,7 +54,15 @@ export default {
     this.setFieldCharacter();
   },
   updated() {
-    // console.log(this.$store.state.master.characters.list);
+    if(this.reloading) {
+      anime({
+        targets: '.reload__overlay__circle',
+        direction: 'normal',
+        easing: 'easeInOutSine',
+        strokeDashoffset: [0, anime.setDashoffset,],
+        duration: 3000,
+      });
+    }
   },
   methods: {
     ...mapMutations({
@@ -53,6 +70,10 @@ export default {
       resetFieldCharacter: 'master/resetFieldCharacter',
       addCharacter: 'master/addCharacter',
       openModal: 'master/openModal',
+      setReloadInterval: 'master/setReloadInterval',
+    }),
+    ...mapActions({
+      setReloadInterval: 'master/setReloadInterval',
     }),
     getFieldCharacter: function(position) {
       const charaId = this.$store.state.master.characters.field[positions[position]];
@@ -75,7 +96,10 @@ export default {
       return chara.subImg ? chara.subImg : chara.img;
     },
     onClickReload: function(){
-      this.resetFieldCharacter();
+      if(this.reloading) {
+        return;
+      }
+      this.setReloadInterval();
       this.setFieldCharacter();
     },
   },
@@ -99,8 +123,37 @@ export default {
 }
 
 .reload {
+  position: absolute;
+  display: flex;
+  width: 48px;
+  height: 48px;
   bottom: 72px;
   right: 16px;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.reload__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  fill: transparent;
+  z-index: 50;
+  cursor: default;
+}
+
+.reload__overlay__circle{
+  transform: rotateX(180deg) rotate(90deg);
+  /* transform: rotate(90deg) rotateY(180deg); */
+  /* transform: rotateX(-90deg); */
+  fill: transparent;
+  stroke: rgba(75,75,75,.4);;
+  stroke-width: 40;
+  stroke-dasharray: 125;
+}
+
+.hidden {
+  display: none;
 }
 
 /* animation */

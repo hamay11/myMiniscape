@@ -143,6 +143,7 @@ export default {
 .character {
   position: absolute;
   width: 30%;
+  cursor: pointer;
 }
 
 .kurosuke {

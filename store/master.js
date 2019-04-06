@@ -7,6 +7,7 @@ export const state = () => ({
             chara: '', // キャラクター名
             isNew: false, // 初回表示フラグ
         },
+        reloading: false, // 更新インターバルフラグ
     },
     characters: {
         list: [], // ゲット済のキャラクター一覧
@@ -61,6 +62,19 @@ export const mutations = {
     },
     closeModal (state) {
         state.ui.modal.chara = '';
+    },
+    startInterval (state) {
+        state.ui.reloading = true;
+    },
+    finishInterval (state) {
+        state.ui.reloading = false;
+    },
+};
+
+export const actions = {
+    setReloadInterval ({ commit, }) {
+        commit('startInterval');
+        setTimeout(() => commit('finishInterval'), 3000);
     },
 };
 
