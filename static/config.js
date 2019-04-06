@@ -111,7 +111,7 @@ export const characters = {
     },
     kotaro : {
         name: '小太郎',
-        chara: characterNames.kurosuke,
+        chara: characterNames.kotaro,
         img: kotaroImg,
         description: 'さくら きれいで ござる！',
         position: positions.onTheTree,
