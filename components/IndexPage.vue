@@ -37,6 +37,9 @@ export default {
   margin: auto;
   vertical-align: middle;
   align-content: center;
+  background: rgba(255, 255, 255, .6);
+  box-sizing: border-box;
+  padding: 8%;
 }
 
 .index__title {
@@ -59,7 +62,7 @@ export default {
 
 /* 縦長 スマホサイズ*/
 @media (orientation: portrait) and (max-width: 767px) {
-  .index {
+  .index__button {
     font-size: 100%;
   }
 }

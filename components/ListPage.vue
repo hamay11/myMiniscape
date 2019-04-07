@@ -70,6 +70,7 @@ export default {
   padding: 4%;
   overflow: auto;
   font-size: 24px;
+  background: rgba(255, 255, 255, .6);
 }
 
 .characterList__item {

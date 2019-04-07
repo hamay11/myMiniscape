@@ -25,7 +25,6 @@ import IndexPage from '@/components/IndexPage.vue';
 import ListIcon from '@/components/Icons/ListIcon.vue';
 import HomeIcon from '@/components/Icons/HomeIcon.vue';
 import Modal from '@/components/Modal.vue';
-// import anime from 'animejs';
 
 export default {
   components: {
@@ -44,22 +43,6 @@ export default {
       return this.$store.state.master.ui.modal.chara;
     },
   },
-  /* mounted: function() {
-    this.$nextTick(function () {
-    // 動かねえ〜って思ってたけどその前に冷静に考えてroot動かしちゃダメだわ
-    anime({
-        targets: '.root',
-        direction: 'normal',
-        easing: 'linear',
-        transleteX: [
-          { value: 0, },
-          { value: 30, },
-        ],
-        loop: true,
-        duration: 3000,
-      });
-    });
-  }, */
   methods: {
     ...mapMutations({
       movePage: 'master/movePage',
