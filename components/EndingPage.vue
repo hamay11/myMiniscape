@@ -21,6 +21,7 @@
 
 <script>
 import { mapMutations, } from 'vuex';
+import anime from 'animejs';
 import Field from '@/components/Field.vue';
 import Character from '@/components/Character.vue';
 import { characters, } from '@/static/config.js';
@@ -45,12 +46,54 @@ export default {
   },
   computed: {},
   mounted() {
-    // console.log(this.$store.state.master.characters.list);
+    this.$nextTick(function () {
+      this.setAnimation();
+    });
   },
   methods: {
     ...mapMutations({
       movePage: 'master/movePage',
     }),
+    setAnimation: function(){
+      anime({
+        targets: '.cloud__1',
+        easing: 'easeOutQuad',
+        translateX: [
+          { value: '0%', },
+          { value: '60%', },
+        ],
+        duration: 6000,
+        delay: 1000,
+      });
+      anime({
+        targets: '.cloud__2',
+        easing: 'easeOutQuad',
+        translateX: [
+          { value: '0%', },
+          { value: '-50%', },
+        ],
+        duration: 4000,
+      });
+      anime({
+        targets: '.cloud__3',
+        easing: 'easeOutQuad',
+        translateX: [
+          { value: '0%', },
+          { value: '30%', },
+        ],
+        duration: 4000,
+      });
+      anime({
+        targets: '.cloud__4',
+        easing: 'easeOutQuad',
+        translateX: [
+          { value: '0%', },
+          { value: '-32%', },
+        ],
+        duration: 4000,
+        delay: 500,
+      });
+    },
   },
 };
 </script>
@@ -69,7 +112,7 @@ export default {
 
 .cloud__1 {
   top: 62%;
-  left: 72%;
+  left: 20%;
   width: 90%;
 }
 
@@ -81,19 +124,19 @@ export default {
 
 .cloud__4 {
   top: 72%;
-  left: -24%;
+  left: -8%;
   width: 90%;
 }
 
 .cloud__2 {
   top: 48%;
-  left: -24%;
+  left: 8%;
   width: 80%;
 }
 
 .cloud__3 {
-  top: 80%;
-  left: 32%;
+  top: 78%;
+  left: 16%;
   width: 100%;
 }
 
