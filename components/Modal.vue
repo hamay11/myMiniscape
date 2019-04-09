@@ -34,8 +34,11 @@ export default {
       isNew: 'master/isNew',
     }),
     showRareWithStars: function(rare) {
-        const stars = [...Array(rare),].map(() => { return '★';});
-        return stars.join('');
+      if (rare === 0) {
+        return '★★★★★';
+      }
+      const stars = [...Array(rare),].map(() => '★');
+      return stars.join('');
     },
   },
 };

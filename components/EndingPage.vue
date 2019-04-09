@@ -6,12 +6,14 @@
       <img :src="colud2" class="ending__image cloud__2" />
       <img :src="colud3" class="ending__image cloud__3" />
       <img :src="cloud4" class="ending__image cloud__4" />
-      <Character
-        :img="yukimura.img"
-        :alt="yukimura.name"
-        :position="yukimura.positionStyle"
-        :id="yukimura.chara"
-      />
+      <div @click="onClickCharacter()">
+        <Character
+          :img="yukimura.img"
+          :alt="yukimura.name"
+          :position="yukimura.positionStyle"
+          :id="yukimura.chara"
+        />
+      </div>
     </div>
     <div class="container layer_background">
       <Field />
@@ -24,7 +26,7 @@ import { mapMutations, } from 'vuex';
 import anime from 'animejs';
 import Field from '@/components/Field.vue';
 import Character from '@/components/Character.vue';
-import { characters, } from '@/static/config.js';
+import { characters, characterNames, } from '@/static/config.js';
 import cloud1Img from '@/static/cloud1.png';
 import cloud2Img from '@/static/cloud2.png';
 import cloud3Img from '@/static/cloud3.png';
@@ -53,7 +55,18 @@ export default {
   methods: {
     ...mapMutations({
       movePage: 'master/movePage',
+      addCharacter: 'master/addCharacter',
+      openModal: 'master/openModal',
     }),
+    onClickCharacter: function() {
+      console.log('onclick!');
+      const isNew = !this.$store.state.master.characters.list.includes(characterNames.yukimura);
+      this.openModal({
+        chara: characterNames.yukimura,
+        isNew,
+      });
+      this.addCharacter(characterNames.yukimura);
+    },
     setAnimation: function(){
       anime({
         targets: '.cloud__1',
