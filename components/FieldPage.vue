@@ -113,6 +113,7 @@ export default {
   position: absolute;
   top: 0;
   text-align: center;
+  overflow: hidden;
 }
 
 .layer_character {

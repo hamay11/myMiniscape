@@ -4,13 +4,14 @@
       <transition name="fade">
         <Modal v-if="isModalOpen()" :character="getCharacter(modalCharacter)" />
       </transition>
-        <button v-show="page !== 'index'" class="button move" @click="movePage()">
+        <button v-show="page === 'field' || page === 'list'" class="button move" @click="movePage()">
           <ListIcon v-if="page === 'field'" />
           <HomeIcon v-if="page === 'list'" />
         </button>
         <FieldPage v-if="page === 'field'" />
-        <ListPage v-if="page === 'list'" />
-        <IndexPage v-if="page === 'index'" />
+        <ListPage v-else-if="page === 'list'" />
+        <IndexPage v-else-if="page === 'index'" />
+        <EndingPage v-else-if="page === 'ending'" />
       </div>
       <link href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c" rel="stylesheet">
   </div>
@@ -22,6 +23,7 @@ import { characters, } from '@/static/config.js';
 import FieldPage from '@/components/FieldPage.vue';
 import ListPage from '@/components/ListPage.vue';
 import IndexPage from '@/components/IndexPage.vue';
+import EndingPage from '@/components/EndingPage.vue';
 import ListIcon from '@/components/Icons/ListIcon.vue';
 import HomeIcon from '@/components/Icons/HomeIcon.vue';
 import Modal from '@/components/Modal.vue';
@@ -31,6 +33,7 @@ export default {
     FieldPage,
     ListPage,
     IndexPage,
+    EndingPage,
     ListIcon,
     HomeIcon,
     Modal,
