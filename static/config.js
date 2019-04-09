@@ -6,7 +6,7 @@ import miyoshiDummyImg from '@/static/miyoshi_dummy.png';
 import koganeImg from '@/static/kogane.png';
 import kurosukeImg from '@/static/kurosuke.png';
 import kotaroImg from '@/static/kotaro.png';
-// import yukimuraImg from '@/static/yukimura.png';
+import yukimuraImg from '@/static/yukimura.png';
 
 /**
  * フィールド上でキャラクターが表示される位置
@@ -121,16 +121,16 @@ export const characters = {
             left: '36%',
         },
     },
-    /* yukimura : {
+    yukimura : {
         name: '幸村',
         chara: characterNames.yukimura,
         img: yukimuraImg,
         description: 'たのしんで いただけたかな',
         position: positions.onTheTerrace, // debug
-        rare: 5, // debug
+        rare: 0, // debug
         positionStyle: {
             bottom: '22%',
             right: '20%',
         },
-    }, */
+    },
 };
