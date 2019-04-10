@@ -1,6 +1,9 @@
 <template>
   <div class="ending">
     <div class="container layer_character">
+      <button class="button reload button__ending" @click="onClickReload">
+        <ReloadIcon class="reload__icon"/>
+      </button>
       <img :src="colud1" class="ending__image cloud__1__sub" />
       <img :src="colud1" class="ending__image cloud__1" />
       <img :src="colud2" class="ending__image cloud__2" />
@@ -106,6 +109,12 @@ export default {
         duration: 4000,
         delay: 500,
       });
+      anime({
+        targets: '.button__ending',
+        delay: 7000,
+      });
+      // TODO: 最後にコンプリート！的なやつ出したい
+      // TODO: fieldとlistに戻れるようにする
     },
   },
 };
@@ -151,6 +160,10 @@ export default {
   top: 78%;
   left: 16%;
   width: 100%;
+}
+
+.button__ending {
+  display: none;
 }
 
 /* 縦長 スマホサイズ*/

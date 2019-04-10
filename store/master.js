@@ -1,8 +1,8 @@
-import { characters, positions, } from '@/static/config';
+import { characters, characterNames, positions, } from '@/static/config';
 
 export const state = () => ({
     ui: { // 画面の表示とか
-        page: 'ending', // file | list | index | ending
+        page: 'index', // file | list | index | ending
         modal: {
             chara: '', // キャラクター名
             isNew: false, // 初回表示フラグ
@@ -22,6 +22,11 @@ export const state = () => ({
 
 export const mutations = {
     setFieldCharacter (state) {
+        if (state.characters.list.length === Object.keys(characterNames).length - 1) {
+            // TODO: メソッド分けた方がいいんだとは思う
+            state.ui.page = 'ending';
+            return;
+        }
         const getRandomInt = (rare) => rare === 0 ? 1 : Math.floor(Math.random() * Math.floor(rare + 1));
         // TODO: これだと配列前方の要素の方がより出現率が高いことになるので、出現率の傾斜の付け方は大いに検討の余地あり
         const setChara = (position) => 
