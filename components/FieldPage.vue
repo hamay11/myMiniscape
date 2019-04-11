@@ -8,15 +8,15 @@
   </button>
   <div class="container layer_character">
     <div
-      v-for="position in positionKeys"
-      :key="position"
-      @click="onClickCharacter(characterId(position))">
+      v-for="charaName in charaNameKeys"
+      :key="charaName"
+      @click="onClickCharacter(charaName)">
         <Character
-          v-if="getFieldCharacter(position)"
-          :img="getFieldCharacterImg(position)"
-          :alt="getFieldCharacter(position).name"
-          :position="getFieldCharacter(position).positionStyle"
-          :id="getFieldCharacter(position).chara"
+          v-if="isOnField(charaName)"
+          :img="getFieldCharacterImg(charaName)"
+          :alt="getCharacterObject(charaName).name"
+          :position="getCharacterObject(charaName).positionStyle"
+          :id="getCharacterObject(charaName).chara"
         />
     </div>
   </div>
@@ -30,7 +30,7 @@
 import { mapMutations, mapActions, mapState, } from 'vuex';
 import Field from '@/components/Field.vue';
 import Character from '@/components/Character.vue';
-import { characters, positions, } from '@/static/config.js';
+import { characters, characterNames, positions, } from '@/static/config.js';
 import ReloadIcon from '@/components/Icons/ReloadIcon.vue';
 import anime from 'animejs';
 
@@ -44,9 +44,14 @@ export default {
   computed: {
     ...mapState({
       reloading: state => state.master.ui.reloading,
+      onFieldCharacters: state => state.master.characters.field,
+      characterList: state => state.master.characters.list,
     }),
     positionKeys: function() {
       return Object.keys(positions);
+    },
+    charaNameKeys: function() {
+      return Object.keys(characterNames);
     },
   },
   mounted() {
@@ -75,25 +80,26 @@ export default {
     ...mapActions({
       setReloadInterval: 'master/setReloadInterval',
     }),
-    getFieldCharacter: function(position) {
-      const charaId = this.$store.state.master.characters.field[positions[position]];
-      return characters[charaId];
+    isOnField: function(charaName) {
+      return Object.keys(this.onFieldCharacters).some(
+        position => this.onFieldCharacters[position] === charaName
+      );
     },
-    characterId: function(position) {
-      // positionを受け取って返すようにしたい
-      return this.$store.state.master.characters.field[positions[position]];
+    getCharacterObject: function(charaName) {
+      return characters[charaName];
     },
     onClickCharacter: function(characterId) {
-      const isNew = !this.$store.state.master.characters.list.includes(characterId);
+      const isNew = !this.characterList.includes(characterId);
       this.openModal({
         chara: characterId,
         isNew,
       });
       this.addCharacter(characterId);
     },
-    getFieldCharacterImg: function(position) {
-      const chara = this.getFieldCharacter(position);
-      return chara.subImg ? chara.subImg : chara.img;
+    getFieldCharacterImg: function(charaName) {
+      return characters[charaName].subImg
+        ? characters[charaName].subImg
+        : characters[charaName].img;
     },
     onClickReload: function(){
       if(this.reloading) {
