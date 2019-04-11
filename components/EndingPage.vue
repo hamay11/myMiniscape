@@ -62,7 +62,6 @@ export default {
       openModal: 'master/openModal',
     }),
     onClickCharacter: function() {
-      console.log('onclick!');
       const isNew = !this.$store.state.master.characters.list.includes(characterNames.yukimura);
       this.openModal({
         chara: characterNames.yukimura,
@@ -76,7 +75,7 @@ export default {
         easing: 'easeOutQuad',
         translateX: [
           { value: '0%', },
-          { value: '60%', },
+          { value: '64%', },
         ],
         duration: 6000,
         delay: 1000,
@@ -104,7 +103,7 @@ export default {
         easing: 'easeOutQuad',
         translateX: [
           { value: '0%', },
-          { value: '-32%', },
+          { value: '-36%', },
         ],
         duration: 4000,
         delay: 500,
