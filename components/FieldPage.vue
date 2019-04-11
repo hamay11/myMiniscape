@@ -156,12 +156,12 @@ export default {
 }
 
 /* animation */
-.fade-enter .modal__content, .fade-leave-to .modal__content {
+.popup-enter .modal__content, .popup-leave-to .modal__content {
   opacity: 0;
   transform: scale(0);
 }
 
-.fade-enter-to .modal__content, .fade-leave .modal__content {
+.popup-enter-to .modal__content, .popup-leave .modal__content {
   opacity: 1;
   transform: scale(1);
 }

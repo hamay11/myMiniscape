@@ -1,17 +1,19 @@
 <template>
   <div class="root">
       <div class="main">
-      <transition name="fade">
+      <transition name="popup">
         <Modal v-if="isModalOpen()" :character="getCharacter(modalCharacter)" />
       </transition>
         <button v-show="page === 'field' || page === 'list'" class="button move" @click="movePage()">
           <ListIcon v-if="page === 'field'" />
           <HomeIcon v-if="page === 'list'" />
         </button>
-        <FieldPage v-if="page === 'field'" />
-        <ListPage v-else-if="page === 'list'" />
-        <IndexPage v-else-if="page === 'index'" />
-        <EndingPage v-else-if="page === 'ending'" />
+        <transition name="fade">
+          <FieldPage v-if="page === 'field'" />
+          <ListPage v-else-if="page === 'list'" />
+          <IndexPage v-else-if="page === 'index'" />
+          <EndingPage v-else-if="page === 'ending'" class="endingPage"/>
+        </transition>
       </div>
       <link href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c" rel="stylesheet">
   </div>
@@ -166,4 +168,22 @@ table {
   bottom: 16px;
   right: 16px;
 }
+
+.endingPage {
+  transition: opacity 2s;
+} 
+
+/* animation */
+.fade-enter, .fade-leave-to {
+  opacity: 0;
+}
+
+.fade-enter-to, .fade-leave {
+  opacity: 1;
+}
+
+.fade-enter-active:not(.endingPage), .fade-leave-active:not(.endingPage) {
+  transition: opacity .5s;
+} 
+
 </style>
