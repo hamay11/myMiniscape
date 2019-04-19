@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import { mapMutations, mapState, } from 'vuex';
+import { mapMutations, mapState, mapGetters, } from 'vuex';
 import anime from 'animejs';
 import Field from '@/components/Field.vue';
 import Character from '@/components/Character.vue';
@@ -57,12 +57,19 @@ export default {
   computed: {
     ...mapState({
       page: state => state.master.ui.page,
+      characterList: state => state.master.characters.list,
+      modal: state => state.master.ui.modal.chara,
     }),
   },
   watch: {
     page: function() {
       if ( this.page === 'ending') {
         this.setAnimation();
+      }
+    },
+    modal: function() {
+      if (!this.isModalOpen() && this.isClear()) {
+        this.end();
       }
     },
   },
@@ -72,13 +79,37 @@ export default {
       addCharacter: 'master/addCharacter',
       openModal: 'master/openModal',
     }),
+    ...mapGetters({
+      isClear: 'master/isClear',
+      isModalOpen: 'master/isModalOpen',
+    }),
     onClickCharacter: function() {
-      const isNew = !this.$store.state.master.characters.list.includes(characterNames.yukimura);
+      const isNew = !this.characterList.includes(characterNames.yukimura);
       this.openModal({
         chara: characterNames.yukimura,
         isNew,
       });
       this.addCharacter(characterNames.yukimura);
+    },
+    end: function() {
+      // "CLEAR!"
+      anime({
+        targets: '.finish',
+        width: '100%',
+        easing: 'easeInOutQuad',
+        duration: 1500,
+      });
+      anime({
+        targets: '.finish__text',
+        opacity: 1,
+        delay: 700,
+      });
+      // fieldに戻るボタンをアニメーション終わってから表示する
+      anime({
+        targets: '.button__ending',
+        delay: 500,
+        opacity: 1,
+      });
     },
     setAnimation: function(){
       anime({
@@ -119,18 +150,6 @@ export default {
         duration: 4000,
         delay: 500,
       });
-      // "CLEAR!"
-      anime({
-        targets: '.finish',
-        width: '100%',
-        easing: 'easeInOutQuad',
-      });
-      // fieldに戻るボタンをアニメーション終わってから表示する
-      anime({
-        targets: '.button__ending',
-        delay: 7000,
-        opacity: 1,
-      });
     },
   },
 };
@@ -158,6 +177,7 @@ export default {
   font-family: 'kazuraki-sp2n';
   line-height: 10vh;
   font-size: 6vh;
+  opacity: 0;
 }
 
 .ending__image {

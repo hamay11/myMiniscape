@@ -90,4 +90,7 @@ export const getters = {
     isNew: (state) => {
         return state.ui.modal.isNew;
     },
+    isClear: (state) => {
+        return state.characters.list.length === Object.keys(characterNames).length;
+    },
 };
