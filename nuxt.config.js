@@ -45,4 +45,14 @@ module.exports = {
     },
   },
   mode: 'spa',
+  /**
+   * PWA setting
+   */
+  modules: [
+    '@nuxtjs/pwa',
+  ],
+  manifest: {
+    name: 'My web service',
+    lang: 'ja',
+  },
 };
