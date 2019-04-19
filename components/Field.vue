@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import backgroundImg from '@/static/background.png';
+import backgroundImg from '@/static/background.jpg';
 
 export default {
     data () {

@@ -56,7 +56,7 @@ export const characters = {
         position: positions.onTheTerrace,
         rare: 1, // debug
         positionStyle: {
-            bottom: '22%',
+            bottom: '24%',
             right: '20%',
         },
     },
@@ -68,7 +68,7 @@ export const characters = {
         position: positions.onTheTerrace,
         rare: 2, // debug
         positionStyle: {
-            bottom: '22%',
+            bottom: '24%',
             right: '20%',
         },
     },
@@ -81,7 +81,7 @@ export const characters = {
         position: positions.onTheLoof,
         rare: 2, // debug
         positionStyle: {
-            top: '38%',
+            top: '30%',
             right: '16%',
         },
     },
@@ -105,7 +105,7 @@ export const characters = {
         position: positions.onTheTree,
         rare: 3, // debug
         positionStyle: {
-            top: '20%',
+            top: '10%',
             left: '30%',
         },
     },
@@ -115,10 +115,10 @@ export const characters = {
         img: kotaroImg,
         description: 'さくら きれいで ござる！',
         position: positions.onTheTree,
-        rare: 3, // debug
+        rare: 1, // debug
         positionStyle: {
-            top: '22%',
-            left: '36%',
+            top: '12%',
+            left: '33%',
         },
     },
     yukimura : {
