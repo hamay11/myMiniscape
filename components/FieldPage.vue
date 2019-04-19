@@ -12,7 +12,7 @@
       :key="charaName"
       @click="onClickCharacter(charaName)">
         <Character
-          v-if="isOnField(charaName)"
+          v-show="isOnField(charaName)"
           :img="getFieldCharacterImg(charaName)"
           :alt="getCharacterObject(charaName).name"
           :position="getCharacterObject(charaName).positionStyle"
