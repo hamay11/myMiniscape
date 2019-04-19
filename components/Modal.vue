@@ -47,7 +47,7 @@ export default {
 <style>
 .modal__wrapper {
     position: absolute;
-    z-index: 20;
+    z-index: 200;
     top: 0;
     left: 0;
     width: 100%;

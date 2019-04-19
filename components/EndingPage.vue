@@ -1,9 +1,12 @@
 <template>
   <div class="ending">
+    <div class="finish">
+      <p class="finish__text">クリア！</p>
+    </div>
+    <button class="button reload button__ending" @click="movePage">
+      <ReloadIcon class="reload__icon"/>
+    </button>
     <div class="container layer_character">
-      <button class="button reload button__ending" @click="onClickReload">
-        <ReloadIcon class="reload__icon"/>
-      </button>
       <img :src="colud1" class="ending__image cloud__1__sub" />
       <img :src="colud1" class="ending__image cloud__1" />
       <img :src="colud2" class="ending__image cloud__2" />
@@ -25,10 +28,11 @@
 </template>
 
 <script>
-import { mapMutations, } from 'vuex';
+import { mapMutations, mapState, } from 'vuex';
 import anime from 'animejs';
 import Field from '@/components/Field.vue';
 import Character from '@/components/Character.vue';
+import ReloadIcon from '@/components/Icons/ReloadIcon.vue';
 import { characters, characterNames, } from '@/static/config.js';
 import cloud1Img from '@/static/cloud1.png';
 import cloud2Img from '@/static/cloud2.png';
@@ -39,6 +43,7 @@ export default {
   components: {
     Field,
     Character,
+    ReloadIcon,
   },
   data() {
     return {
@@ -49,11 +54,17 @@ export default {
       cloud4: cloud4Img,
     };
   },
-  computed: {},
-  mounted() {
-    this.$nextTick(function () {
-      this.setAnimation();
-    });
+  computed: {
+    ...mapState({
+      page: state => state.master.ui.page,
+    }),
+  },
+  watch: {
+    page: function() {
+      if ( this.page === 'ending') {
+        this.setAnimation();
+      }
+    },
   },
   methods: {
     ...mapMutations({
@@ -108,12 +119,18 @@ export default {
         duration: 4000,
         delay: 500,
       });
+      // "CLEAR!"
+      anime({
+        targets: '.finish',
+        width: '100%',
+        easing: 'easeInOutQuad',
+      });
+      // fieldに戻るボタンをアニメーション終わってから表示する
       anime({
         targets: '.button__ending',
         delay: 7000,
+        opacity: 1,
       });
-      // TODO: 最後にコンプリート！的なやつ出したい
-      // TODO: fieldとlistに戻れるようにする
     },
   },
 };
@@ -123,6 +140,24 @@ export default {
 .ending {
   width: 100%;
   overflow: hidden;
+}
+
+.finish {
+  position: absolute;
+  z-index: 101;
+  border: none;
+  background: #fff;
+  opacity: 0.8;
+  width: 0%;
+  height: 10%;
+  top: 24%;
+  text-align: center;
+}
+
+.finish__text {
+  font-family: 'kazuraki-sp2n';
+  line-height: 10vh;
+  font-size: 6vh;
 }
 
 .ending__image {
@@ -138,7 +173,7 @@ export default {
 }
 
 .cloud__1__sub {
-  top: 16%;
+  top: 4%;
   left: 16%;
   width: 90%;
 }
@@ -162,7 +197,7 @@ export default {
 }
 
 .button__ending {
-  display: none;
+  opacity: 0;
 }
 
 /* 縦長 スマホサイズ*/

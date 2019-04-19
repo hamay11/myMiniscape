@@ -103,7 +103,7 @@ export const characters = {
         img: kurosukeImg,
         description: 'へいわな もんだな',
         position: positions.onTheTree,
-        rare: 3, // debug
+        rare: 4, // debug
         positionStyle: {
             top: '10%',
             left: '30%',
@@ -115,7 +115,7 @@ export const characters = {
         img: kotaroImg,
         description: 'さくら きれいで ござる！',
         position: positions.onTheTree,
-        rare: 1, // debug
+        rare: 3, // debug
         positionStyle: {
             top: '12%',
             left: '33%',
