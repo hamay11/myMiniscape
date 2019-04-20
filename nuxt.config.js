@@ -61,7 +61,7 @@ module.exports = {
     '@nuxtjs/pwa',
   ],
   manifest: {
-    name: 'My web service',
+    name: 'くろのこあつめ',
     lang: 'ja',
   },
 };
