@@ -62,6 +62,10 @@ module.exports = {
   ],
   manifest: {
     name: 'くろのこあつめ',
+    short_name: 'くろのこ',
     lang: 'ja',
+  },
+  workbox: {
+    dev: true,
   },
 };
