@@ -17,7 +17,7 @@ module.exports = {
       { hid: 'apple-mobile-web-app-description', name: 'apple-mobile-web-app-description', content: '忍者組のおうちへようこそ〜！ゆっくりしていってね', },
       { hid: 'apple-mobile-web-app-image', name: 'apple-mobile-web-app-image', content: '~/assets/background.jpg', },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico', },],
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.png', },],
   },
   /*
    ** Customize the progress bar color
